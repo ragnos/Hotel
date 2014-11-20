@@ -4,22 +4,25 @@
  * and open the template in the editor.
  */
 package hotel;
+import org.joda.time.*;
 
 /**
  *
  * @author Ragnos
  */
 public class anfrage {
-    java.util.Date  vonDatum, bisDatum;
+    
+    DateTime vonDatum;
+    DateTime bisDatum;
     byte cBetten;
     
     public anfrage(){
         /* todo */
     }
     
-    public anfrage(java.util.Date  vD, java.util.Date  bD, byte cB){
-        vonDatum = vD;
-        bisDatum = bD;
-        cBetten = cB;
+    public anfrage(DateTime  vd, DateTime bd, byte cb){
+        vonDatum = vd;
+        bisDatum = bd;
+        cBetten = cb;
     }
 }
