@@ -12,14 +12,14 @@ package hotel;
 public class zimmer {
     
     boolean avail = true;
-    int cBetten;
-    int znr;
+    byte cBetten;
+    byte znr;
         
     public zimmer(){
-        
+        /* todo*/
     }
     
-    public zimmer(int nZnr, int nBetten){
+    public zimmer(byte nZnr, byte nBetten){
         cBetten = nBetten;
         znr = nZnr;
     }
