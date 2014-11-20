@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hotel;
+import org.joda.time.*;
 
 /**
  *
@@ -11,17 +12,17 @@ package hotel;
  */
 public class reservierung {
     byte ResNr,znr;
-    java.util.Date bisDatum, vonDatum;
+    DateTime bisDatum, vonDatum;
     int kdnr;
     
     public reservierung(){
         /* todo */
     }
     
-    public reservierung(int kdn, java.util.Date vD, java.util.Date bD, byte zn){
+    public reservierung(int kdn, DateTime vd, DateTime bd, byte zn){
         kdnr = kdn;
-        vonDatum = vD;
-        bisDatum = bD;
+        vonDatum = vd;
+        bisDatum = bd;
         znr = zn;
     }
 }
