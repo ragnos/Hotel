@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package hotel;
-import org.joda.time.*;
+//import org.joda.time.*;
+import java.util.*;
+import java.time.*;
 
 /**
  *
  * @author Ragnos
  */
 public class kunde {
-    
-    
+       
     int kdnr;
     String name, adresse;
     
@@ -25,48 +26,47 @@ public class kunde {
         adresse = adr;
     }
     
-    public boolean anfrageZimmerFrei(DateTime vd, DateTime bd, byte cb){
+    public boolean anfrageZimmerFrei(LocalDate vd, LocalDate bd, int cb, List<reservierung> ResList){
         anfrage a = new anfrage(vd,bd,cb);
-        /* TODO: Wir müssen hier mit allen bereits vorhandenen Reservierungen
-        vergleichen, um Doppelbelegungen auszuschließen.
+        Iterator<reservierung> it = ResList.iterator();
+        boolean weiter = false;
         
-        Prüfen ob überhaupt reservierungen vorliegen? Wenn nein return true
-        
-        Siehe hierzu checkdate_obj(), allerdings wird da JodaTime benutzt.
-        http://www.joda.org/joda-time/
-        */
-        //return checklist_obj(a,r);
+        while(it.hasNext() && weiter){
+            weiter = this.checkdate_obj(a, it.next());
+        }
+        System.out.println("Buchung ist möglich!");
         return true;
     }
     
-    public boolean anfrageReservieren(){
-        /*todo*/
+    public boolean anfrageReservieren(anfrage a, List<reservierung> ResList){
+        ResList.add(new reservierung(this.kdnr, a.vonDatum, a.bisDatum, a.cBetten));
+        System.out.println("Buchung erfolgt!");
+        System.out.print("KdNr: ");
+        System.out.println(this.kdnr);
+        System.out.print("Von: ");
+        System.out.println(a.vonDatum);
+        System.out.print("Bis: ");
+        System.out.println(a.bisDatum);
+        System.out.print("Bettenzahl: ");
+        System.out.println(a.cBetten);
         return true;
     }
     
-    public boolean anfrageStorno(){
-        /* todo */
+    public boolean anfrageStorno(List<reservierung> ResList){
+        //Der Storno sollte mittels RechnungsNummer erfolgen, also Manuell.
+        //In dieser Beispielaufgabe steht dem Kunden kein Interface zur einsicht
+        //seiner bestehenden Reservierungen zur Verfügung, also steht kein Objekt
+        //zum Übergeben bereit. (Pointer?)
         return true;
     }
     
-    public boolean checkdate_obj(anfrage a, reservierung r){
+    private boolean checkdate_obj(anfrage a, reservierung r){
         if (a.vonDatum.isBefore(r.vonDatum)){
             if (r.vonDatum.isBefore(a.bisDatum)) return false; // Startdatum liegt innerhalb einer Reservierung
             else return true; // Startdatum liegt hinter der Reservierung.
         }
         else{
             if(a.vonDatum.isBefore(r.bisDatum)) return false; //Enddatum der Reservierung liegt innerhalb unseres Anfragezeitraums
-            else return true;
-        }
-    }
-    
-    public boolean checkdate_dates(DateTime vd_a, DateTime bd_a, DateTime vd_b, DateTime bd_b){
-        if (vd_a.compareTo(vd_b) <= 0){
-            if (vd_b.compareTo(bd_a) <= 0) return false; // Startdatum liegt innerhalb einer Reservierung
-            else return true; // Startdatum liegt hinter der Reservierung.
-        }
-        else{
-            if(vd_a.compareTo(bd_b) <= 0) return false; //Enddatum der Reservierung liegt innerhalb unseres Anfragezeitraums
             else return true;
         }
     }
