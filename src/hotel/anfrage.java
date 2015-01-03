@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package hotel;
-import org.joda.time.*;
+//import org.joda.time.*;
+import java.util.*;
+import java.time.*;
 
 /**
  *
@@ -12,15 +14,15 @@ import org.joda.time.*;
  */
 public class anfrage {
     
-    DateTime vonDatum;
-    DateTime bisDatum;
-    byte cBetten;
+    LocalDate vonDatum;
+    LocalDate bisDatum;
+    int cBetten;
     
     public anfrage(){
         /* todo */
     }
     
-    public anfrage(DateTime  vd, DateTime bd, byte cb){
+    public anfrage(LocalDate  vd, LocalDate bd, int cb){
         vonDatum = vd;
         bisDatum = bd;
         cBetten = cb;
