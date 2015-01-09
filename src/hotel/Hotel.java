@@ -22,9 +22,9 @@ public class Hotel {
         Iterator it = ResList.iterator();
         
         //Demodaten: Kunden:
-        kunde kunde_a = new kunde("Andreas A.","Auf der Flucht 1");
-        kunde kunde_b = new kunde("Berta B.","Bauerngasse 2");
-        kunde kunde_c = new kunde("Christopher C.","Clausberger Allee 3");
+        kunde kunde_a = new kunde(1,"Andreas A.","Auf der Flucht 1");
+        kunde kunde_b = new kunde(2,"Berta B.","Bauerngasse 2");
+        kunde kunde_c = new kunde(3,"Christopher C.","Clausberger Allee 3");
 
         //Demodaten: Reservierungen
         ResList.add(new reservierung(1,LocalDate.of(2015, Month.JANUARY, 1),LocalDate.of(2015, Month.JANUARY, 15),1));

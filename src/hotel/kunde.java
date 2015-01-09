@@ -21,7 +21,8 @@ public class kunde {
         /* todo */
     }
     
-    public kunde(String n, String adr){
+    public kunde(int kd, String n, String adr){
+        kdnr = kd;
         name = n;
         adresse = adr;
     }
