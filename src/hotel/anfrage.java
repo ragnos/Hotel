@@ -22,6 +22,12 @@ public class anfrage {
         /* todo */
     }
     
+    /**
+     *
+     * @param vd
+     * @param bd
+     * @param cb
+     */
     public anfrage(LocalDate  vd, LocalDate bd, int cb){
         vonDatum = vd;
         bisDatum = bd;

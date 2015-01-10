@@ -35,8 +35,8 @@ public class kunde {
         while(it.hasNext() && weiter){
             weiter = this.checkdate_obj(a, it.next());
         }
-        System.out.println("Buchung ist möglich!");
-        return true;
+        if(weiter) { System.out.println("Buchung ist möglich!"); return true;}
+        else { System.out.println("Buchung ist nicht möglich!"); return false;}
     }
     
     public boolean anfrageReservieren(anfrage a, List<reservierung> ResList){
