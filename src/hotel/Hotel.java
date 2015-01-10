@@ -50,15 +50,15 @@ public class Hotel {
         kunde kunde_c = new kunde(3,"Christopher C.","Clausberger Allee 3");
 
         //Demodaten: Reservierungen
-        ResList.add(new reservierung(1,LocalDate.of(2015, Month.JANUARY, 1),LocalDate.of(2015, Month.JANUARY, 15),1));
-        ResList.add(new reservierung(2,LocalDate.of(2015, Month.JANUARY, 16),LocalDate.of(2015, Month.FEBRUARY, 1),1));
-        ResList.add(new reservierung(3,LocalDate.of(2015, Month.JANUARY, 1),LocalDate.of(2015, Month.FEBRUARY, 2),2));
+        ResList.add(new reservierung(1,LocalDate.of(2015, 1, 1),LocalDate.of(2015, 1, 15),1));
+        ResList.add(new reservierung(2,LocalDate.of(2015, 1, 16),LocalDate.of(2015, 2, 1),1));
+        ResList.add(new reservierung(3,LocalDate.of(2015, 1, 1),LocalDate.of(2015, 2, 2),2));
         
-        anfrage a1 = new anfrage(LocalDate.of(2015,Month.FEBRUARY,1), LocalDate.of(2015,Month.FEBRUARY,15), 1);
+        anfrage a1 = new anfrage(LocalDate.of(2015,2,1), LocalDate.of(2015,2,15), 1);
         /*Das hier ist noch "suboptimal"... Man müsste durchgängig vorgenerierte
         anfrage-Objekte verwenden, sonst wären sie überflüssig. Ich lass erstmal
         beides drin... */
-        if(kunde_a.anfrageZimmerFrei(LocalDate.of(2015,Month.FEBRUARY,1), LocalDate.of(2015,Month.FEBRUARY,15), 1, ResList))
+        if(kunde_a.anfrageZimmerFrei(LocalDate.of(2015,2,1), LocalDate.of(2015,2,15), 1, ResList))
             kunde_a.anfrageReservieren(a1,ResList);
     }
 }

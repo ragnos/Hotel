@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package hotel;
-//import org.joda.time.*;
 import java.util.*;
 import java.time.*;
 
@@ -13,7 +12,7 @@ import java.time.*;
  * @author Ragnos
  */
 public class kunde {
-       
+    
     int kdnr;
     String name, adresse;
     
@@ -30,7 +29,7 @@ public class kunde {
     public boolean anfrageZimmerFrei(LocalDate vd, LocalDate bd, int cb, List<reservierung> ResList){
         anfrage a = new anfrage(vd,bd,cb);
         Iterator<reservierung> it = ResList.iterator();
-        boolean weiter = false;
+        boolean weiter = true;
         
         while(it.hasNext() && weiter){
             weiter = this.checkdate_obj(a, it.next());
